@@ -2,8 +2,9 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
-import Subscription from "./components/Subscription";
-import DashboardLayout from "./pages/DashboardLayout";
+import Subscription from "./pages/Subscription";
+import DashboardLayout from "./components/DashboardLayout";
+import SubscriptionDetails from "./pages/SubscriptionDetails";
 
 function AppContent() {
   const location = useLocation();
@@ -31,3 +32,4 @@ function App() {
 }
 
 export default App;
+  

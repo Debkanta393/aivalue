@@ -1,10 +1,30 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { Home, CreditCard, LogOut, Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+
 
 const Sidebar = ({ active, onSelect }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [navbarHeight, setNavbarHeight] = useState(0);
+  const location = useLocation();
+  console.log(location)
+
+  // Dynamically measure navbar height
+  useEffect(() => {
+    const navbar = document.querySelector("header");
+    if (navbar) {
+      setNavbarHeight(navbar.offsetHeight);
+    }
+  }, []);
+
+  // Automatically set active tab based on route
+  useEffect(() => {
+    if (location.pathname.includes("/dashboard/subscription")) {
+      onSelect("subscription");
+    } else if (location.pathname.includes("/dashboard")) {
+      onSelect("dashboard");
+    }
+  }, [location.pathname, onSelect]);
 
   const handleToggle = () => setIsOpen(!isOpen);
   const handleSelect = (item) => {
@@ -12,13 +32,6 @@ const Sidebar = ({ active, onSelect }) => {
     setIsOpen(false);
   };
 
-  // Dynamically measure navbar height so sidebar starts below it
-  useEffect(() => {
-    const navbar = document.querySelector("header"); // assuming your navbar is inside <header>
-    if (navbar) {
-      setNavbarHeight(navbar.offsetHeight);
-    }
-  }, []);
 
   return (
     <>
@@ -63,11 +76,10 @@ const Sidebar = ({ active, onSelect }) => {
           <Link
             to="/dashboard"
             onClick={() => handleSelect("dashboard")}
-            className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-all ${
-              active === "dashboard"
+            className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-all ${active === "dashboard"
                 ? "bg-gradient-to-r from-[#e7d3a4] to-[#cdb383] text-black font-semibold"
                 : "text-gray-300 hover:bg-gray-800"
-            }`}
+              }`}
           >
             <Home size={20} /> Dashboard
           </Link>
@@ -75,11 +87,10 @@ const Sidebar = ({ active, onSelect }) => {
           <Link
             to="/dashboard/subscription"
             onClick={() => handleSelect("subscription")}
-            className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-all ${
-              active === "subscription"
+            className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-all ${active === "subscription"
                 ? "bg-gradient-to-r from-[#e7d3a4] to-[#cdb383] text-black font-semibold"
                 : "text-gray-300 hover:bg-gray-800"
-            }`}
+              }`}
           >
             <CreditCard size={20} /> Subscription
           </Link>
