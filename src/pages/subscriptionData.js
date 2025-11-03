@@ -38,7 +38,7 @@ const plans = [
     tagline: "APP-rentice",
     price: "$979 start-up + $97/month",
     desc: "Streamline your workflows into one intelligent, unified app.",
-    color: "from-yellow-700 to-amber-900 border-yellow-500",
+    color: "from-yellow-900 to-amber-900 border-yellow-500",
     button: "Upgrade to Gold",
     features: [
       "Unified dashboard for 3 projects",
@@ -71,7 +71,7 @@ const plans = [
     tagline: "Con-TextMiner",
     price: "$9,797 start-up + $497/month",
     desc: "Turn messy documents, notes, and emails into structured knowledge.",
-    color: "from-purple-900 to-indigo-900 border-purple-500",
+    color: "from-indigo-900 to-purple-900 border-purple-500",
     button: "Upgrade to Platinum",
     features: [
       "Dashboard for 6 projects",

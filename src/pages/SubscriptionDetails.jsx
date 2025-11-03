@@ -82,7 +82,7 @@ export default function SubscriptionDetails() {
                         <h3 className="text-2xl font-semibold mb-3 flex items-center gap-2">
                             Who It's For
                         </h3>
-                        <p className="text-gray-400 leading-relaxed">
+                        <p className="text-gray-200 leading-relaxed">
                             {plan.details.whoFor}
                         </p>
                     </div>
