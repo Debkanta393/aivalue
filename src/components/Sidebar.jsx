@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Home, CreditCard, LogOut, Menu, X } from "lucide-react";
+import { Home, CreditCard, LogOut, Menu, X, GitCompareArrows, ShoppingBag } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 
@@ -21,10 +21,19 @@ const Sidebar = ({ active, onSelect }) => {
   useEffect(() => {
     if (location.pathname.includes("/dashboard/subscription")) {
       onSelect("subscription");
-    } else if (location.pathname.includes("/dashboard")) {
+    }
+    else if (location.pathname.includes("/dashboard/recomendedplans")) {
+      onSelect("recomendedplans");
+    }
+     else if (location.pathname.includes("/dashboard")) {
       onSelect("dashboard");
     }
+    
   }, [location.pathname, onSelect]);
+
+  console.log(active
+
+  )
 
   const handleToggle = () => setIsOpen(!isOpen);
   const handleSelect = (item) => {
@@ -93,6 +102,28 @@ const Sidebar = ({ active, onSelect }) => {
               }`}
           >
             <CreditCard size={20} /> Subscription
+          </Link>
+
+          <Link
+            to="/dashboard/recomendedplans"
+            onClick={() => handleSelect("recomendedplans")}
+            className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-all ${active === "recomendedplans"
+                ? "bg-gradient-to-r from-[#e7d3a4] to-[#cdb383] text-black font-semibold"
+                : "text-gray-300 hover:bg-gray-800"
+              }`}
+          >
+            <ShoppingBag size={20} /> Recommended Plans
+          </Link>
+
+          <Link
+            to="/compareplans"
+            onClick={() => handleSelect("compareplans")}
+            className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-all ${active === "compareplans"
+                ? "bg-gradient-to-r from-[#e7d3a4] to-[#cdb383] text-black font-semibold"
+                : "text-gray-300 hover:bg-gray-800"
+              }`}
+          >
+            <GitCompareArrows  size={20} /> Compare Plans
           </Link>
         </nav>
 

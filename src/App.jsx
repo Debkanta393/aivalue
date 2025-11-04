@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Subscription from "./pages/Subscription";
 import DashboardLayout from "./components/DashboardLayout";
 import SubscriptionDetails from "./pages/SubscriptionDetails";
+import ComparePlans from "./pages/ComparePlans";
 
 function AppContent() {
   const location = useLocation();
@@ -17,6 +18,7 @@ function AppContent() {
         <Route path="/" element={<Home />} />
         <Route path="/subscription" element={<Subscription />} />
         <Route path="/dashboard/*" element={<DashboardLayout />} />
+        <Route path="/compareplans" element={<ComparePlans />} />
       </Routes>
       {!isDashboardRoute && <Footer />}
     </>

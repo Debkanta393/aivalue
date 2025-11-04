@@ -5,6 +5,7 @@ import DashboardHome from "../pages/DashboardHome";
 import Subscription from "../pages/Subscription";
 import Footer from "./Footer";
 import SubscriptionDetails from "../pages/SubscriptionDetails";
+import RecommendedPlan from "../pages/RecomendedPlans";
 
 const DashboardLayout = () => {
   const [active, setActive] = useState("dashboard");
@@ -21,6 +22,7 @@ const DashboardLayout = () => {
             <Route path="/" element={<DashboardHome />} />
             <Route path="/subscription" element={<Subscription />} />
             <Route path="subscription/:id" element={<SubscriptionDetails />} />
+            <Route path="recomendedplans" element={<RecommendedPlan />} />
           </Routes>
         </main>
       </div>
