@@ -6,7 +6,7 @@ const plans = [
   {
     name: "SILVER",
     tagline: "Simple Needs APP (SNAPP)",
-    price: "$10/month or $97/year",
+    price: "$12/month or $97/year", // $10 + 20% = $12
     desc: "A private way to chat with your data and get quick insights.",
     color: "from-gray-700 to-gray-900 border-gray-500",
     button: "Current Plan",
@@ -20,7 +20,7 @@ const plans = [
   {
     name: "GOLD",
     tagline: "APP-rentice",
-    price: "$979 start-up + $97/mo",
+    price: "$979 start-up + $116.40/mo or $97/mo (yearly)", // $97 + 20% = $116.40
     desc: "Streamline your workflows into one smart app.",
     color: "from-yellow-600 to-amber-800 border-yellow-500",
     button: "Upgrade to Gold",
@@ -34,7 +34,7 @@ const plans = [
   {
     name: "PLATINUM",
     tagline: "Con-TextMiner",
-    price: "$9,797 start-up + $497/mo",
+    price: "$9,797 start-up + $596.40/mo or $497/mo (yearly)", // $497 + 20% = $596.40
     desc: "Turn messy docs & emails into a searchable brain.",
     color: "from-purple-700 to-indigo-900 border-purple-500",
     button: "Upgrade to Platinum",
@@ -48,7 +48,7 @@ const plans = [
   {
     name: "DIAMOND",
     tagline: "Pro-FitMiner",
-    price: "$49,797 start-up + $979/mo",
+    price: "$49,797 start-up + $1,174.80/mo or $979/mo (yearly)", // $979 + 20% = $1,174.80
     desc: "Model your operations, simulate fixes & scale profitably.",
     color: "from-blue-700 to-cyan-900 border-blue-500",
     button: "Upgrade to Diamond",
@@ -61,11 +61,12 @@ const plans = [
   },
 ];
 
+
 const SubscriptionPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white py-20 px-6">
       <div className="text-center max-w-4xl mx-auto mb-16">
-        <h1 className="text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#e7d3a4] to-[#cdb383]">
+        <h1 className="text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#e7d3a4] to-[#cdb383]" style={{lineHeight: "normal"}}>
           Upgrade Your Experience
         </h1>
         <p className="text-gray-400 text-lg">
