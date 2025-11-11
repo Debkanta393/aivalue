@@ -1,10 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useParams, Link } from "react-router-dom";
 import plans from './subscriptionData';
 import { motion } from "framer-motion";
 import { ArrowLeft, CheckCircle2, Star, Users, Zap } from "lucide-react";
+import SubscriptionForm from '../components/SubscriptionForm';
 
 export default function SubscriptionDetails() {
+
+    const [showForm, setShowForm] = useState(false);
 
     const { id } = useParams();
     const plan = plans.find((p) => p.id === id);
@@ -130,11 +133,12 @@ export default function SubscriptionDetails() {
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.98 }}
                 >
-                    <button className="w-full bg-gradient-to-r from-amber-400 to-[#cdb383] hover:from-[#cdb383] hover:to-amber-400 cursor-pointer text-black font-bold text-lg py-4 rounded-2xl shadow-lg hover:shadow-amber-500/30 transition">
+                    <button className="w-full bg-gradient-to-r from-amber-400 to-[#cdb383] hover:from-[#cdb383] hover:to-amber-400 cursor-pointer text-black font-bold text-lg py-4 rounded-2xl shadow-lg hover:shadow-amber-500/30 transition" onClick={()=> setShowForm(true)}>
                         {plan.button}
                     </button>
                 </motion.div>
             </motion.div>
+            <SubscriptionForm showForm={showForm} setShowForm={setShowForm} buttonType={id}/>
         </div>
     )
 }

@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useState} from "react";
+import SubscriptionForm from "../components/SubscriptionForm"
 
 const plans = [
   {
@@ -61,6 +62,10 @@ const plans = [
 ];
 
 const ComparePlans = () => {
+
+  const [showForm, setShowForm] = useState(false);
+  const [buttonType, setButtonType] = useState(null);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white py-16 px-6">
       <div className="max-w-7xl mx-auto text-center mb-14">
@@ -101,6 +106,7 @@ const ComparePlans = () => {
                     ? "bg-gray-700 cursor-default text-gray-300"
                     : "bg-gradient-to-r from-amber-400 to-[#cdb383] hover:from-[#cdb383] hover:to-amber-400 hover:opacity-90 cursor-pointer"
                 }`}
+                onClick={()=> {setButtonType(plan.name); setShowForm(true)}}
               >
                 {plan.button}
               </button>
@@ -108,6 +114,7 @@ const ComparePlans = () => {
           </div>
         ))}
       </div>
+      <SubscriptionForm showForm={showForm} setShowForm={setShowForm} buttonType={buttonType}/>
     </div>
   );
 };
